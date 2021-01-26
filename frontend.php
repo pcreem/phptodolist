@@ -105,33 +105,30 @@
                                 </td>
                             </tr>
 
-                             <?php
-                                $x = 1;
+                            <?php
+                            if ($result->num_rows > 0) {
 
-                                while($x <= 5) {
-                                echo "<tr><td> $x </td></tr>";
-                                $x++;
-                                }
-                                ?> 
-
-                            <tr>
+                            while($row = $result->fetch_assoc()) {
+                            echo "<tr>"; ?>
+                            <?php echo "<td class=\"col-sm-6\">"; ?>
+                            <?php echo $row['task']; ?> 
+                            <?php  echo "</td>"; ?>
+                            <?php echo "<td class=\"col-sm-6\">
+                                        <button type=\"submit\" class=\"btn btn-success\" disabled ><i class=\"fa fa-btn fa-thumbs-o-up\"></i>completed</button>
+                                        <button type=\"submit\" class=\"btn btn-primary\"><i class=\"fa fa-btn fa-pencil\"></i>edit</button>
+                                        <button type=\"submit\" class=\"btn btn-danger\"><i class=\"fa fa-btn fa-trash\"></i>delete</button>
+                                </td>"; ?>
                             
-                               <?php
-                                  if ($result->num_rows > 0) {
+                            
 
-                                  while($row = $result->fetch_assoc()) { ?> 
-                                    <td class="col-sm-6" id="<?php echo $row["id"]; ?>">
-                                    <?php echo $row['task'] ?>
-                                    <!-- Task Buttons -->
-                                <td class="col-sm-6">
-                                        <button type="submit" class="btn btn-success" disabled id="<?php echo $row["id"]; ?>" ><i class="fa fa-btn fa-thumbs-o-up"></i>completed</button>
-                                        
-                                </td>
-                                </td>
-                                    
-                                <?php  }}
-                                ?> 
-                            </tr>
+                            <?php  echo "</tr>"; ?>
+                            <?php
+                             }};
+                            ?> 
+
+                            
+                            
+                           
                         </tbody>
                     </table>
                 </div>
