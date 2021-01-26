@@ -99,11 +99,12 @@
                             <?php echo "<td class=\"col-sm-6\">"; ?>
                             <?php echo $row['task']; ?> 
                             <?php echo "</td>"; ?>
-                            <?php echo "<td class=\"col-sm-6\">
-                                        <button type=\"submit\" class=\"btn btn-success\" disabled ><i class=\"fa fa-btn fa-thumbs-o-up\"></i>completed</button>
-                                        <button type=\"submit\" class=\"btn btn-primary\"><i class=\"fa fa-btn fa-pencil\"></i>edit</button>
-                                        <button type=\"submit\" class=\"btn btn-danger\"><i class=\"fa fa-btn fa-trash\"></i>delete</button>
-                                </td>"; ?>
+                            <td class="col-sm-6">
+                                <button type="submit" class="btn btn-success" disabled ><i class="fa fa-btn fa-thumbs-o-up"></i>completed</button>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-btn fa-pencil"></i>edit</button>
+                                <button type="submit" class="btn btn-danger"><a href="app/delete.php?del_task=<?php echo $row['id'] ?>"><i class="fa fa-btn fa-trash"></i>delete</a> </button>
+                                
+                            </td>
                             
                             
 
