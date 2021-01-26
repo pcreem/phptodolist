@@ -13,7 +13,8 @@
             <html>
                 <body>
 
-                <form action=\"app/edit.php\" method=\"post\">
+                <form action=\"edit.php\" method=\"post\">
+                <input type=\"hidden\" name=\"id\" value=\"$id\">
                 Update Task: <input type=\"text\" name=\"name\"
                 value=\"$task\"
                 
@@ -28,9 +29,23 @@
         }
         
       }
+    }   
+
+  }elseif($_POST['id']){
+    require '../db_conn.php'; 
+    $id = $_POST['id'];   
+    $task = $_POST['name'];
+    echo $task;
+
+    $sql = "UPDATE Task SET task='$task' WHERE id=$id;";
+    if ($conn->query($sql) === TRUE) {
+      echo "hihi successfully";
+    } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
-    
+    $conn->close();
+    header("Location: ../frontend.php");
 
   }
   else {
