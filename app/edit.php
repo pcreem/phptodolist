@@ -35,7 +35,6 @@
     require '../db_conn.php'; 
     $id = $_POST['id'];   
     $task = $_POST['name'];
-    echo $task;
 
     $sql = "UPDATE Task SET task='$task' WHERE id=$id;";
     if ($conn->query($sql) === TRUE) {

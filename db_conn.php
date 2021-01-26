@@ -11,7 +11,7 @@
 					die("Connection failed: " . $conn->connect_error);
         }
         
-        $sql = "SELECT id, task, reg_date FROM Task";
+        $sql = "SELECT * FROM Task ORDER BY reg_date DESC;";
 				$result = $conn->query($sql);
 
     ?>
