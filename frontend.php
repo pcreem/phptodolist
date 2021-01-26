@@ -1,20 +1,6 @@
 <?php 
-        $servername = "localhost";
-        $username = "localuser";
-				$password = "Password123#@!";
-				$dbname = 'todolist';
-        
-        // Create connection
-				$conn = new mysqli($servername, $username, $password, $dbname);
-				// Check connection
-				if ($conn->connect_error) {
-					die("Connection failed: " . $conn->connect_error);
-        }
-        
-        $sql = "SELECT id, task, reg_date FROM Task";
-				$result = $conn->query($sql);
-
-    ?>
+    require 'db_conn.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,7 +45,7 @@
 
                 <div class="panel-body">
                     <!-- New Task Form -->
-                    <form action="" method="POST" class="form-horizontal">
+                    <form action="app/add.php" method="POST" class="form-horizontal">
                         <!-- Task Name -->
                         <div class="form-group">
                             <label for="task-name" class="col-sm-3 control-label">Task</label>
@@ -112,7 +98,7 @@
                             echo "<tr>"; ?>
                             <?php echo "<td class=\"col-sm-6\">"; ?>
                             <?php echo $row['task']; ?> 
-                            <?php  echo "</td>"; ?>
+                            <?php echo "</td>"; ?>
                             <?php echo "<td class=\"col-sm-6\">
                                         <button type=\"submit\" class=\"btn btn-success\" disabled ><i class=\"fa fa-btn fa-thumbs-o-up\"></i>completed</button>
                                         <button type=\"submit\" class=\"btn btn-primary\"><i class=\"fa fa-btn fa-pencil\"></i>edit</button>
